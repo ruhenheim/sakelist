@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sake_identify_code: MyString
+  sake_name: MyString
+  sake_furigana: MyString
+  sake_alphabet: MyString
+  maker_id: 
+  maker_name: MyString
+  maker_postcode: MyString
+  maker_address: MyString
+  maker_url: MyString
+  url: MyString
+  discontinued: false
+
+two:
+  sake_identify_code: MyString
+  sake_name: MyString
+  sake_furigana: MyString
+  sake_alphabet: MyString
+  maker_id: 
+  maker_name: MyString
+  maker_postcode: MyString
+  maker_address: MyString
+  maker_url: MyString
+  url: MyString
+  discontinued: false

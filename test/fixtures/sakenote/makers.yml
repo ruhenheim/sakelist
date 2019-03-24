@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  maker_id: 
+  maker_name: MyString
+  maker_postcode: MyString
+  maker_address: MyString
+  maker_url: MyString
+  url: MyString
+  close: false
+
+two:
+  maker_id: 
+  maker_name: MyString
+  maker_postcode: MyString
+  maker_address: MyString
+  maker_url: MyString
+  url: MyString
+  close: false
