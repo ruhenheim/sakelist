@@ -10,20 +10,6 @@
 require "#{Rails.root}/lib/sake_note_api.rb"
 
 # 
-# Sakenote::酒一覧
-# 
-res_sakes = SakeNoteApi.sakes
-res_sakes["sakes"].each {|sake| Sakenote::Sake.create!(sake)}  # 1page目
-sake_pages = res_sakes["num_pages"]
-if sake_pages > 1
-  (2..sake_pages).each do |page|
-    SakeNoteApi.sakes(page: page)["sakes"].each do |sake|
-      Sakenote::Sake.create!(sake)
-    end
-  end
-end
-
-# 
 # Sakenote::酒蔵一覧
 # 
 res_makers = SakeNoteApi.makers
@@ -37,3 +23,16 @@ if maker_pages > 1
   end
 end
 
+# 
+# Sakenote::酒一覧
+# 
+res_sakes = SakeNoteApi.sakes
+res_sakes["sakes"].each {|sake| Sakenote::Sake.create!(sake)}  # 1page目
+sake_pages = res_sakes["num_pages"]
+if sake_pages > 1
+  (2..sake_pages).each do |page|
+    SakeNoteApi.sakes(page: page)["sakes"].each do |sake|
+      Sakenote::Sake.create!(sake)
+    end
+  end
+end
