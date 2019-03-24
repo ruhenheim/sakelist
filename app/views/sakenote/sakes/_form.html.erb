@@ -1,0 +1,17 @@
+<%= form_with(model: sakenote_sake, local: true) do |form| %>
+  <% if sakenote_sake.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sakenote_sake.errors.count, "error") %> prohibited this sakenote_sake from being saved:</h2>
+
+      <ul>
+      <% sakenote_sake.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

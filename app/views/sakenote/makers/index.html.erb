@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sakenote Makers</h1>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :maker_name_cont, '酒蔵名' %>
+  <%= f.search_field :maker_name_cont %>
+
+  <%= f.label :sakes_sake_name_or_sakes_sake_furigana_or_sakes_sake_alphabet_cont, '銘柄' %>
+  <%= f.search_field :sakes_sake_name_or_sakes_sake_furigana_or_sakes_sake_alphabet_cont %>
+
+  <%= f.submit %>
+<% end %>
+
+<table bgcolor="silver" border="1">
+  <thead>
+    <tr>
+      <th>酒蔵id</th>
+      <th>酒蔵名</th>
+      <th>所在地</th>
+      <th>製造銘柄</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sakenote_makers.each do |sakenote_maker| %>
+      <tr>
+        <td><%= sakenote_maker.maker_id %></td>
+        <td><%= sakenote_maker.maker_name %></td>
+        <td>
+          <address>
+            <%= sakenote_maker.maker_postcode %>
+            <%= sakenote_maker.maker_address %>
+            <%= link_to sakenote_maker.maker_url, sakenote_maker.maker_url, target: "_blank", referer: "noopener noreferrer" %>
+          </address>
+        </td>
+        <td>
+          <%= sakenote_maker.sakes.map {|s| s.yield_self(&:sake_name)} %>
+        </td>
+        <td><%= link_to 'Show', sakenote_maker %></td>
+        <td><%= link_to 'Edit', edit_sakenote_maker_path(sakenote_maker) %></td>
+        <td><%= link_to 'Destroy', sakenote_maker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @sakenote_makers %>
+<br>
+
+<%= link_to 'New Sakenote Maker', new_sakenote_maker_path %>

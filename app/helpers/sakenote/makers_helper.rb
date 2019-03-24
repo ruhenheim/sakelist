@@ -1,0 +1,2 @@
+module Sakenote::MakersHelper
+end
